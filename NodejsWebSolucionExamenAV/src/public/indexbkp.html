@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Acceso a la Red</title>
+    <link rel="stylesheet" href="css/main.css" />
+    
+</head>
+<body>
+    <script src="http://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous">
+    </script>
+    <script src="js/appreghisbot.js" charset="utf-8"></script>
+
+    <h1>Ajax and NodeJS</h1>
+    <button id="getProductos">
+        Get Productos
+    </button>
+    <hr />
+    <form id="productForm">
+        <input type="text" id="newProduct" />
+        <button type="submit" id="btnCrear">Crear Producto</button>
+        <button type="button" id="btnGrabar">Grabar LocalStorage</button>
+    </form>
+    <table style="width:100%;">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Acciones
+                </th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+</body>
+</html>
