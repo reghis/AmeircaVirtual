@@ -8,9 +8,16 @@ const app = express();
 
 app.set('port', process.env.PORT || 3000);
 
-// static files
+// routes
 
-//app.use(express.static(path.join(__dirname, '/public/virtue/product/racer-t-shirt')));
+app.get('/sistemas', (req, res) => {
+    res.json({
+        sistemas: ['sistema1','sistema2']
+    })
+});
+
+
+// static files
 app.use(express.static(path.join(__dirname, '/public')));
 
 

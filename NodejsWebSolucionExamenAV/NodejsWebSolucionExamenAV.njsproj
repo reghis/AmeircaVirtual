@@ -81,12 +81,27 @@
     </Content>
     <Content Include="src\public\imgs\AMERICAVIRTUALv2.png" />
     <Content Include="src\public\index.html" />
+    <Content Include="src\public\index12.html" />
+    <Content Include="src\public\index14.html" />
+    <Content Include="src\public\index2.html" />
+    <Content Include="src\public\index3.html" />
     <Content Include="src\public\indexbkp.html">
       <SubType>Code</SubType>
     </Content>
     <Content Include="src\public\virtue\my-account\feed\index.html" />
     <Content Include="src\public\virtue\my-account\index.html" />
     <Content Include="src\public\virtue\my-account\lost-password\index.html" />
+    <Content Include="src\public\virtue\product\explore-hoodie\feed\index.html" />
+    <Content Include="src\public\virtue\product\explore-hoodie\index12.html" />
+    <Content Include="src\public\virtue\product\fisherman-t-shirt\feed\index.html" />
+    <Content Include="src\public\virtue\product\fisherman-t-shirt\index13.html" />
+    <Content Include="src\public\index13.html" />
+    <Content Include="src\public\virtue\product\market-t-shirt\feed\index.html" />
+    <Content Include="src\public\virtue\product\market-t-shirt\index3.html" />
+    <Content Include="src\public\virtue\product\montainware-t-shirt\feed\index.html" />
+    <Content Include="src\public\virtue\product\montainware-t-shirt\index14.html" />
+    <Content Include="src\public\virtue\product\racer-hoodie\feed\index.html" />
+    <Content Include="src\public\virtue\product\racer-hoodie\index2.html" />
     <Content Include="src\public\virtue\product\racer-t-shirt\feed\index.html" />
     <Content Include="src\public\virtue\product\racer-t-shirt\index.html" />
     <Content Include="src\public\virtue\wp-content\plugins\woocommerce\assets\css\blocks\style3ab2.css" />
@@ -186,6 +201,16 @@
     <Folder Include="src\public\virtue\my-account\feed\" />
     <Folder Include="src\public\virtue\my-account\lost-password\" />
     <Folder Include="src\public\virtue\product\" />
+    <Folder Include="src\public\virtue\product\explore-hoodie\" />
+    <Folder Include="src\public\virtue\product\explore-hoodie\feed\" />
+    <Folder Include="src\public\virtue\product\fisherman-t-shirt\" />
+    <Folder Include="src\public\virtue\product\fisherman-t-shirt\feed\" />
+    <Folder Include="src\public\virtue\product\market-t-shirt\" />
+    <Folder Include="src\public\virtue\product\market-t-shirt\feed\" />
+    <Folder Include="src\public\virtue\product\montainware-t-shirt\" />
+    <Folder Include="src\public\virtue\product\montainware-t-shirt\feed\" />
+    <Folder Include="src\public\virtue\product\racer-hoodie\" />
+    <Folder Include="src\public\virtue\product\racer-hoodie\feed\" />
     <Folder Include="src\public\virtue\product\racer-t-shirt\" />
     <Folder Include="src\public\virtue\product\racer-t-shirt\feed\" />
     <Folder Include="src\public\virtue\wp-admin\" />
