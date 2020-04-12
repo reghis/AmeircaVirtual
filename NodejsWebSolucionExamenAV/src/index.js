@@ -23,7 +23,7 @@ const IN_PROD = NODE_ENV === 'production'
 
 const users = [
     {
-       id: 1, Nombre: 'reghisbot', email : 'reghisbot@gmail.com', password : '123' 
+        id: 1, Nombre: 'reghisbot', email: 'reghisbot@gmail.com', password : '123' 
     },
     {
         id: 2, Nombre: 'america', email: 'america@gmail.com', password: '123'
@@ -66,33 +66,30 @@ app.use(session({
 
 // manejo de session
 
+
+// auxiliar LOGIN
 const redirectLogin = (req, res, next) => {
+    console.log(req.session.userId);
     if (!req.session.userId) {
         res.redirect('/login')
     } else {
-       next()
+        next()
     }
-
 }
 
-
 const redirectHome = (req, res, next) => {
-    if (!req.session.userId) {
-        res.redirect('/Home')
+    if (!req.session.id) {
+        res.redirect('/home')
     } else {
         next()
     }
-
 }
-
-
 
 // routes login
 app.get('/alfa', (req, res) => {
-    //console.log(req.session)
-    //const { userId } = req.session
-    const userId = 1
-    console.log(userId)
+    const { userId } = req.session
+    //const userId = 1
+    console.log(userId)  // undefined
     res.send(`
         <h1>Welcome</h1>
         ${userId ? `
@@ -108,8 +105,10 @@ app.get('/alfa', (req, res) => {
         `)
 });
 
+
+
 // routes login
-app.get('/home', (req, res) => {   
+app.get('/home',  (req, res) => { 
     res.send(`
         <h1>Home</h1>
         <a href='/alfa'> Main </a>
@@ -121,13 +120,13 @@ app.get('/home', (req, res) => {
 });
 
 // routes login
-app.get('/login' , (req, res) => {
+app.get('/login', (req, res) => {
     res.send(`
-        <h1>Login </h1>
-        <form method='POST' action='/login' >
+        <h1>Login AA</h1>
+        <form method='POST' action='/login'>
             <input type='email' name='email' placeholder='Email' required />
             <input type='password' name='email' placeholder='Password' required />
-            <input type='submit'/>
+           <p><input type="submit" value="Enviar datos LOG"></p>
         </form>
        <a href='/register'>Register</a>
     `)
@@ -141,30 +140,36 @@ app.get('/register', redirectHome, (req, res) => {
             <input name='Nombre' placeholder='Nombre' required />
             <input type='email' name='email' placeholder='Email' required />
             <input type='password' name='email' placeholder='Password' required />
-            <input type='submit'/>
+            <p><input type="submit" value="Enviar datos Registrar"></p>
         </form>
         <a href='/login'>Login</a>
     `)
 });
 
 
-// routes login
+// routes login    POST
 
-app.post('/login', redirectHome, (req, res) => {
-    const { email, password } = req.body
-
-    if (email && password) {    // TODO: Validation
-        const user = users.find(u => u.email === email && u.password === password); // TODO hash
-        if (user) {
-            req.session.userId = user.id
-            return res.redirect('/home');
-        }
+app.post('/login', (req, res) => {
+    const { email, password } = req.body;    //elmet script 6
+    const _user = users.find(
+        user => user.email === email && user.password === password   
+    )
+    console.log('bien ');
+    req.session.userId = 1
+    if (email && password) {
+        
     }
-    res.redirect('/login')
+    console.log('bien 2');
+    ////if (_user) {
+       
+    ////    req.session.userId = user.id
+    ////    return res.redirect('/home')
+    ////}
+    res.redirect('/alfa')
 });
 
-// register
-app.post('/register', redirectHome, (req, res) => {
+// register  POST
+app.post('/register',  (req, res) => {
     const { Nombre, email, password } = req.body
 
     if (Nombre && email && password) {    // TODO: Validation
@@ -173,27 +178,21 @@ app.post('/register', redirectHome, (req, res) => {
         )
         if (!exists) {
             const user = {
-                Id: users.length + 1,
+                id: users.length + 1,
                 Nombre,
                 email,
                 password // TODO: hash
             }
-
         users.push(user);
-
         req.session.userId = user.id;
         return res.redirect('/home');
         }
-
-        
     }
-    return res.redirect('/register');     // TODO: qs /register?error = error.auth.emailTooShort
-
+    res.redirect('/register');     // TODO: qs /register?error = error.auth.emailTooShort
 });
 
-
-// logout 
-app.post('/logout', redirectLogin, (req, res) => {
+// logout  POST
+app.post('/logout', redirectLogin,  (req, res) => {
     req.session.destroy(err => {
         if (err) {
            return res.redirect('/home')
