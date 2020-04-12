@@ -289,9 +289,22 @@
         }
     </style>
     <script type='text/javascript' src='http://themes.kadencethemes.com/virtue/wp-content/plugins/wp-spamshield/js/jscripts.php'></script>
+
+    <script src="http://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous">
+    </script>
+    <script src="../../js/appreghisbot.js"></script>
+
 </head>
 <body class="page-template-default page page-id-7 page-parent woocommerce-account woocommerce-page woocommerce-no-js wide my-account">
-    <div id="kt-skip-link"><a href="#content">Skip to Main Content</a></div>
+    <div id="kt-skip-link">
+        <a href="#content">Skip to Main Content</a>
+    </div>
+
+
+
+    <!--Wrapper-->
     <div id="wrapper" class="container">
         <header class="banner headerclass" itemscope itemtype="https://schema.org/WPHeader">
             <div id="topbar" class="topclass">
@@ -462,7 +475,9 @@
                                     <div class="u-column1 col-1">
 
                                         <h2>Login</h2>
-                                        <form class="woocommerce-form woocommerce-form-login login" method="post">
+                                        <form id="productForm" class="woocommerce-form woocommerce-form-login login" method="post">
+
+                                            <!--<input type="text" id="newProduct" />-->
 
                                             <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                                                 <label for="username">Username or email address&nbsp;<span class="required">*</span></label>
@@ -475,16 +490,27 @@
 
                                             <p class="form-row">
                                                 <label class="woocommerce-form__label woocommerce-form__label-for-checkbox woocommerce-form-login__rememberme">
-                                                    <input class="woocommerce-form__input woocommerce-form__input-checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" /> <span>Remember me</span>
+                                                    <input class="woocommerce-form__input woocommerce-form__input-checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" />
+                                                    <span>Remember me</span>
                                                 </label>
-                                                <input type="hidden" id="woocommerce-login-nonce" name="woocommerce-login-nonce" value="69fef81f29" /><input type="hidden" name="_wp_http_referer" value="/virtue/my-account/" />				<button type="submit" class="woocommerce-button button woocommerce-form-login__submit" name="login" value="Log in">Log in</button>
+                                                <input type="hidden" id="woocommerce-login-nonce" name="woocommerce-login-nonce" value="69fef81f29" />
+                                                <input type="hidden" name="_wp_http_referer" value="/virtue/my-account/" />
+                                                <button type="submit" class="woocommerce-button button woocommerce-form-login__submit" name="login" value="Log in">
+                                                    Log in
+                                                </button>
                                             </p>
                                             <p class="woocommerce-LostPassword lost_password">
                                                 <a href="lost-password/index.html">Lost your password?</a>
                                             </p>
-
                                         </form>
-
+                                        <hr />
+                                        <button id="getUsuarios">
+                                            Get Usuarios
+                                        </button>
+                                        <button id="getSistemas">
+                                            Get Sistemas
+                                        </button>
+                                        <hr />
                                     </div>
                                     <div class="u-column2 col-2">
                                         <h2>Register</h2>
@@ -521,7 +547,8 @@
                                             <noscript><p><strong>Currently you have JavaScript disabled. In order to register, please make sure JavaScript and Cookies are enabled, and reload the page.</strong> <a href="http://enable-javascript.com/" rel="nofollow external">Click here for instructions on how to enable JavaScript in your browser.</a><br /><br /></p></noscript>
                                             <div class="woocommerce-privacy-policy-text"></div>
                                             <p class="woocommerce-FormRow form-row">
-                                                <input type="hidden" id="woocommerce-register-nonce" name="woocommerce-register-nonce" value="d783e9b395" /><input type="hidden" name="_wp_http_referer" value="/virtue/my-account/" />				<button type="submit" class="woocommerce-Button button" name="register" value="Register">Register</button>
+                                                <input type="hidden" id="woocommerce-register-nonce" name="woocommerce-register-nonce" value="d783e9b395" /><input type="hidden" name="_wp_http_referer" value="/virtue/my-account/" />
+                                                <button type="submit" class="woocommerce-Button button" name="register" value="Register">Register</button>
                                             </p>
 
                                         </form>
@@ -623,7 +650,31 @@
                 </div>
             </div>
         </footer>
-    </div><!--Wrapper-->
+    </div>
+
+    <!--/Wrapper-->
+    <!--reghisbot -->
+    <!--/reghisbot -->
+    <style type="text/css">
+
+        #loading {
+            display: none;
+            background-color: gray;
+            z-index: 999999;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            padding-top: 300px;
+            filter: alpha(opacity=75);
+            -khtml-opacity: 0.75;
+            -moz-opacity: 0.75;
+            opacity: 0.75;
+        }
+    </style>
+    <div id="loading"><img src="../../imgs/052.gif" /> </div>
 
     <script type='text/javascript'>
         /* <![CDATA[ */
@@ -685,3 +736,5 @@
 
 <!-- Mirrored from themes.kadencethemes.com/virtue/my-account/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Apr 2020 21:14:25 GMT -->
 </html>
+
+
