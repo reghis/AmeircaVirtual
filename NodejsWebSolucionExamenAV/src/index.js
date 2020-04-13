@@ -4,7 +4,7 @@ const path = require('path');
 const session = require('express-session');
 const TWO_HOURS = 1000 * 60 * 60 * 2;
 const bodyParser = require('body-parser');
-
+const LocalStorage = require('node-localstorage').LocalStorage;
 
 // settings
 //app.set('port', process.env.PORT || 3000);
@@ -155,16 +155,13 @@ app.post('/login', (req, res) => {
         user => user.email === email && user.password === password   
     )
     console.log('bien ');
+    
     req.session.userId = 1
     if (email && password) {
         
     }
-    console.log('bien 2');
-    ////if (_user) {
-       
-    ////    req.session.userId = user.id
-    ////    return res.redirect('/home')
-    ////}
+    console.log('localstorage subido');
+   
     res.redirect('/alfa')
 });
 
@@ -269,6 +266,7 @@ const lista = [
 // routes
 
 app.get('/usuarios', (req, res) => {
+
     res.json(usuarios);
 });
 
@@ -280,8 +278,8 @@ app.get('/rvr', (req, res) => {
 
 // post usuarios
 app.post('/usuarios', (req, res) => {
-    //const { nombre } = req.body;    //elmet script 6
-    res.json('Satisfactoriamente Agregado!!!');
+    const _usrs = req.body;    //elmet script 6
+    res.json(_usrs);
     
 });
 

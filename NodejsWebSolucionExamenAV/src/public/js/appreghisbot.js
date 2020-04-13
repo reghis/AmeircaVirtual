@@ -5,12 +5,11 @@
         var selectedEvent = null;
         FetchEventAndRenderCalender1();
         function FetchEventAndRenderCalender1() {
-            alert("reghisbot");
+            //alert("reghisbot");
             $.ajax({
                 type: 'GET',
                 url: '/rvr',
                 success: function (data) {
-                    alert(data);
                     console.log("estamos aca");
                 },
                 error: function (error) {
@@ -34,6 +33,7 @@
             url: '/usuarios',
             success: function (usuarios) {
                 console.log(usuarios);
+                localStorage.setItem("Persona", JSON.stringify(usuarios));
             }
         })
     })

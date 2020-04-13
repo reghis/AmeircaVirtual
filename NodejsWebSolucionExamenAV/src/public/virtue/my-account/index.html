@@ -504,12 +504,12 @@
                                             </p>
                                         </form>
                                         <hr />
-                                        <button id="getUsuarios">
+                                        <!--<button id="getUsuarios">
                                             Get Usuarios
                                         </button>
                                         <button id="getSistemas">
                                             Get Sistemas
-                                        </button>
+                                        </button>-->
                                         <hr />
                                     </div>
                                     <div class="u-column2 col-2">
@@ -651,6 +651,31 @@
             </div>
         </footer>
     </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#productForm').on('submit', function (e) {
+                // prueba 
+                e.preventDefault();
+                var _nombre = $('#username').val();
+                var _pwd = $('#password').val();
+                let newProduct = $('#newProduct');
+                $.ajax({
+                    url: '/usuarios',
+                    method: 'POST',
+                    data: {
+                        Nombre: _nombre, pwd: _pwd
+                    },
+                    success: function (response) {
+                        localStorage.setItem("Persona", JSON.stringify(response));
+                        console.log(response);
+                        alert('Se agrego al localStorage')
+                        //$('#getProductos').click();
+                    }
+                })
+            });
+            
+        })
+    </script>
 
     <!--/Wrapper-->
     <!--reghisbot -->
